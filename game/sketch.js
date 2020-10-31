@@ -1,5 +1,5 @@
 HEIGHT = 900;
-WIDTH = 1000;
+WIDTH = 1600;
 
 var currentScreen = null;
 var menu = null;
@@ -10,13 +10,20 @@ var puzzles = {
 }
 function preload(){
     // Function to preload all the assets before launching the game
-    menu_background = loadImage("assets/menu_background.png");
+    menu_background = loadImage("assets/SignesDePistes/background.png");
     baton_img = loadImage("assets/baton.png");
 
     // For each puzzle load its images !! The name of the images need to follow a certain format !! 
     for (let puzzle_name in puzzles){
-        var puzzle_bkg_img = loadImage("assets/"+puzzle_name+"background.png");
-        var puzzle_level = Puzzle(puzzle_name, )
+        var puzzle_bkg_img = loadImage("assets/"+puzzle_name+"/background.png");
+        var puzzle_level = new Puzzle(puzzle_name, puzzle_bkg_img);
+        for (i = 1; i<=16;i++){
+            // Load the image for each puzzle piece
+            var img = loadImage("assets/"+puzzle_name+"/1.png");
+            puzzle_level.puzzle_pieces.push(img);
+
+        }
+        puzzles[puzzle_name] = puzzle_level;
     }
 }
 

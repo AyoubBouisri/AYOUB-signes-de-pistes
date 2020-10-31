@@ -41,9 +41,9 @@ function Menu(){
     }
     
     this.showDescription = function(){
-        var charSize = 22;
+        var charSize = 24;
         var textWidth = WIDTH / 2;
-        var textHeight = 220;
+        var textHeight = 300;
         var x = WIDTH / 2 - textWidth / 2;
         var y = HEIGHT - textHeight;
 
