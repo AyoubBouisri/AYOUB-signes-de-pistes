@@ -1,4 +1,6 @@
-function Button(x, y, w, h, button_img) {
+
+function Btn(x, y, w, h, button_img) {
+
     this.x = x;
     this.y = y;
     this.w = w;

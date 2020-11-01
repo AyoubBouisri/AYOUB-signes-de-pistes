@@ -13,7 +13,7 @@ function Puzzle(name, background, puzzle_background, win_image){
     this.dragged_piece = null;
 
     this.button_w = 230;
-    this.bouton_indice = new Button(WIDTH/2 - this.button_w/2, HEIGHT - 90, this.button_w, 50, indice_btn_img);
+    this.bouton_indice = new Btn(WIDTH/2 - this.button_w/2, HEIGHT - 90, this.button_w, 85, indice_btn_img);
 
     this.first_draw = true;
 
@@ -206,9 +206,6 @@ function Puzzle(name, background, puzzle_background, win_image){
         }
     }
 
-    this.get_preview = function(){
-
-    }
 }
 
 
