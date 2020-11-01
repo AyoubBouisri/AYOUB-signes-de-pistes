@@ -50,6 +50,7 @@ function Menu(){
         this.addText(this.gameDescription, x , y, textWidth, textHeight, charSize, 255);
 
     }
+    
     this.addText = function(message, x, y, width, height, size, color) {
         fill(color);
         textSize(size);
