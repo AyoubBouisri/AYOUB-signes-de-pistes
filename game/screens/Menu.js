@@ -4,10 +4,11 @@ function Menu(){
     this.background.resize(WIDTH, HEIGHT);
     this.baton = baton_img;
     
-    this.title = 'KAYOUB';
+    this.title = 'KA-YOUB';
     this.gameDescription = `Associe les pièces du contour avec la bonne case de la grille.
 \nÀ la fin, si tu as toutes les bonnes réponses, découvre le dessin qui s’y cache. \n\nBonne chasse !`;
 
+    this.previews = []
 
     this.show = function(){
         image(this.background, 0, 0);
@@ -20,6 +21,27 @@ function Menu(){
     this.showPuzzlePreviews = function(){
         
     }
+
+    this.setupPuzzlePreviews = function(){
+        var previewsW = 200;
+        var spaceBetweenPreviews = 30;
+        var nbPreviews = Object.keys(puzzles).length;
+        console.log(nbPreviews);
+        var middleScreen = WIDTH / 2;
+        
+        var totatLen = nbPreviews * previewsW + (nbPreviews - 1) * spaceBetweenPreviews
+        var currentX = middleScreen - totatLen/2
+        var previewsY = HEIGHT/2 - previewsW/ 2 + 40;
+        for (puzzle_name in puzzles){
+            puzzle_preview = puzzles[puzzle_name].preview;
+            puzzle_preview.setParameters(currentX, previewsY, previewsW);
+            currentX += previewsW + spaceBetweenPreviews;
+
+            this.previews.push(puzzle_preview);
+        }
+
+    }
+    this.setupPuzzlePreviews();
     
     this.showTitle = function(){
         // Draw the title text
@@ -38,12 +60,17 @@ function Menu(){
         this.baton.resize(batonw, 100);
         
         image(this.baton, batonX, batonY);
+
+        // show previews
+        for (preview of this.previews){
+            preview.show();
+        }
     }
     
     this.showDescription = function(){
         var charSize = 24;
         var textWidth = WIDTH / 2;
-        var textHeight = 300;
+        var textHeight = 250;
         var x = WIDTH / 2 - textWidth / 2;
         var y = HEIGHT - textHeight;
 
@@ -52,17 +79,40 @@ function Menu(){
     }
     
     this.addText = function(message, x, y, width, height, size, color) {
+        noStroke();
         fill(color);
         textSize(size);
         textStyle(BOLD)
         text(message, x, y, width, height);
     }
     
-    this.mouseOver = function(){
-        
+    this.mouseMoved = function(mouseX, mouseY){
+        var hovering = false;
+        for (preview of this.previews){
+            if (preview.contains(mouseX, mouseY)){
+                preview.is_hovered = true;
+                hovering = true;
+            }else{
+                preview.is_hovered = false;
+            }
+        }
+        if (hovering)
+            cursor(HAND)
+        else    
+            cursor(ARROW)
     }
     
-    this.mouseClicked = function(){
+    this.mousePressed = function(){
         
+    }
+    this.mouseReleased = function(){
+        for (preview of this.previews){
+            if (preview.contains(mouseX, mouseY)){
+                currentScreen = puzzles[preview.title]
+            }
+        }
+    }
+    this.mouseDragged = function(){
+
     }
 }

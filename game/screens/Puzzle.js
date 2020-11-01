@@ -16,6 +16,11 @@ function Puzzle(name, background, puzzle_background, win_image){
     this.bouton_indice = new Button(WIDTH/2 - this.button_w/2, HEIGHT - 90, this.button_w, 50, indice_btn_img);
 
     this.first_draw = true;
+
+    this.preview = new PuzzlePreview(this.name, this.background, function(){
+        currentScreen = puzzles[this.name];
+    })
+
     this.show = function(){
         //  Draw the level background 
         var grilleOffSet = 130;
@@ -199,6 +204,10 @@ function Puzzle(name, background, puzzle_background, win_image){
             )
             this.puzzle_pieces.push(puzzle_piece)
         }
+    }
+
+    this.get_preview = function(){
+
     }
 }
 

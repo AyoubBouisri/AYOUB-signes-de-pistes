@@ -6,7 +6,9 @@ var menu = null;
 
 // ADD HERE THE NAME OF THE NEW LEVEL
 var puzzles = {
-    'Signes de pistes' : null
+    'Signes de pistes' : null,
+    'Signes de pistes 2': null,
+    'Signes de pistes 3':null,
 }
 function preload(){
     // Function to preload all the assets before launching the game
@@ -37,7 +39,7 @@ function setup(){
     // Function that is called at the beginning of the app, here we setup our initial objects
     createCanvas(WIDTH, HEIGHT);
 
-    menu = new Menu(puzzles);
+    menu = new Menu();
     currentScreen = menu;
 }
 
