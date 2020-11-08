@@ -23,7 +23,7 @@ function Puzzle(name, background, puzzle_background, win_image){
 
     this.show = function(){
         //  Draw the level background 
-        var grilleOffSet = 130;
+        var grilleOffSet = 85;
         if(this.first_draw){
             this.puzzle_background.resize(this.puzzle_width, this.puzzle_width);
             this.grille.resize(this.puzzle_width + grilleOffSet, this.puzzle_width+ grilleOffSet);
@@ -74,17 +74,24 @@ function Puzzle(name, background, puzzle_background, win_image){
             if(this.dragged_piece != null){
                 this.dragged_piece.show();
             }
-
-            if (correct_pieces==16)
+            if (correct_pieces==16){
                 this.won = true;
+                // Change the indice bouton to be a retour to menu bouton
+                this.bouton_indice.txt = 'Menu'; 
+            
+            }
+
         }else{
             image(this.win_image,0,HEIGHT/2 - (HEIGHT-200)/2)
+            
+            // Draw go back to menu button
+            this.bouton_indice.show();
         }
     }
 
     this.mouseMoved = function(mouseX, mouseY, dragging){
+        var onAPiece = false;
         if(!this.won){
-            var onAPiece = false;
             for (puzzle_piece of this.puzzle_pieces){
                 onAPiece = onAPiece || puzzle_piece.mouseMoved(mouseX, mouseY);
             }
@@ -100,7 +107,16 @@ function Puzzle(name, background, puzzle_background, win_image){
             else
                 cursor(ARROW)
         }else{
-            cursor(ARROW)
+            if (this.bouton_indice.contains(mouseX, mouseY)){
+                onAPiece = true;
+            }else{
+                this.bouton_indice.is_hovered = false;
+            }
+    
+            if (onAPiece)
+                cursor(HAND)
+            else
+                cursor(ARROW)
         }
     }
     
@@ -149,8 +165,8 @@ function Puzzle(name, background, puzzle_background, win_image){
                 this.dragged_piece = null;
             }
     
-            this.bouton_indice.click(mouseX, mouseY);
         }
+        this.bouton_indice.click(mouseX, mouseY);
        
     }
 

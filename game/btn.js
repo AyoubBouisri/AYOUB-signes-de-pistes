@@ -31,22 +31,35 @@ function Btn(x, y, w, h, button_img) {
                 rect
                 text(this.txt, x, y, this.w, this.h);
             }
+
+
         } else {
             this.w = w;
             this.h = h;
             image(this.img, this.x-10, this.y-15);
             textSize(30);
             if (this.txt != null) {
-                rect
-                text(this.txt, this.x, this.y, this.w, this.h);
+                c = color(255,199, 0);
+                fill(c);
+                noStroke();
+                rect(this.x+25 ,this.y+23, this.w-40, this.h-40);
+                fill(255),
+                stroke(0)
+                strokeWeight(4)
+                textSize(40)
+                text(this.txt, this.x + 60, this.y + 24, this.w, this.h);
             }
         }
     }
     this.click = function(mouseX, mouseY) {
-        if (this.contains(mouseX, mouseY)){
-            this.indice = true;
-        } else{
-            this.indice = false;
+        if (this.txt != null){
+            currentScreen = menu;
+        }else{
+            if (this.contains(mouseX, mouseY)){
+                this.indice = true;
+            } else{
+                this.indice = false;
+            }
         }
     }
 

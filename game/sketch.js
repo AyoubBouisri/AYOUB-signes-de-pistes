@@ -1,12 +1,12 @@
-HEIGHT = 900;
-WIDTH = 1600;
+HEIGHT = 700;
+WIDTH = 1400;
 
 var currentScreen = null;
 var menu = null;
 
 // ADD HERE THE NAME OF THE NEW LEVEL
 var puzzles = {
-    'Signes de pistes' : null,
+    'Signes de pistes': null,
     'Signes de pistes 2': null,
     'Signes de pistes 3':null,
 }

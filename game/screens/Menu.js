@@ -23,7 +23,7 @@ function Menu(){
     }
 
     this.setupPuzzlePreviews = function(){
-        var previewsW = 200;
+        var previewsW = 150;
         var spaceBetweenPreviews = 30;
         var nbPreviews = Object.keys(puzzles).length;
         console.log(nbPreviews);
@@ -31,7 +31,7 @@ function Menu(){
         
         var totatLen = nbPreviews * previewsW + (nbPreviews - 1) * spaceBetweenPreviews
         var currentX = middleScreen - totatLen/2
-        var previewsY = HEIGHT/2 - previewsW/ 2 + 40;
+        var previewsY = HEIGHT/2 - previewsW/ 2 + 70;
         for (puzzle_name in puzzles){
             puzzle_preview = puzzles[puzzle_name].preview;
             puzzle_preview.setParameters(currentX, previewsY, previewsW);
@@ -68,9 +68,9 @@ function Menu(){
     }
     
     this.showDescription = function(){
-        var charSize = 24;
+        var charSize = 20;
         var textWidth = WIDTH / 2;
-        var textHeight = 250;
+        var textHeight = 175;
         var x = WIDTH / 2 - textWidth / 2;
         var y = HEIGHT - textHeight;
 
