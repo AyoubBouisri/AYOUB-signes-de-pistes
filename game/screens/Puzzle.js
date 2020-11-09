@@ -74,6 +74,7 @@ function Puzzle(name, background, puzzle_background, win_image){
             if(this.dragged_piece != null){
                 this.dragged_piece.show();
             }
+            
             if (correct_pieces==16){
                 this.won = true;
                 // Change the indice bouton to be a retour to menu bouton

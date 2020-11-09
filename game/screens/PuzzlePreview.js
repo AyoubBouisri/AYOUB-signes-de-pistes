@@ -7,6 +7,7 @@ function PuzzlePreview(title, background, play_function){
     this.play_function = play_function;
     this.is_hovered = false;
     this.first_draw = true;
+    
     this.show = function(){
         if (this.first_draw){
             this.background = background.get();
