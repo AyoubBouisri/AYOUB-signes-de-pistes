@@ -7,7 +7,6 @@ var menu = null;
 // ADD HERE THE NAME OF THE NEW LEVEL
 var puzzles = {
     'Signes de pistes': null,
-    'Signes de pistes 2': null,
     'Signes de pistes 3':null,
 }
 function preload(){
