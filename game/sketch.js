@@ -6,8 +6,7 @@ var menu = null;
 
 // ADD HERE THE NAME OF THE NEW LEVEL
 var puzzles = {
-    'Signes de pistes': null,
-    'Signes de pistes 3':null,
+    'Signes de pistes': null
 }
 function preload(){
     // Function to preload all the assets before launching the game
