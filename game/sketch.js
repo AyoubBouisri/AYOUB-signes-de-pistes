@@ -6,7 +6,6 @@ var menu = null;
 
 // ADD HERE THE NAME OF THE NEW LEVEL
 var puzzles = {
-<<<<<<< HEAD
     'Signes de pistes': null,
     'Signaux des vieux-loups': null,
 }
