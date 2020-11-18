@@ -9,9 +9,6 @@ var puzzles = {
 <<<<<<< HEAD
     'Signes de pistes': null,
     'Signaux des vieux-loups': null,
-=======
-    'Signes de pistes': null
->>>>>>> 20183aff56b18e4509d1f9ae9c6390fce38f32f2
 }
 function preload(){
     // Function to preload all the assets before launching the game
